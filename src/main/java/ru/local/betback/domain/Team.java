@@ -20,7 +20,4 @@ public class Team {
     private String name;
     private int matches;
     private int points;
-
-    @ManyToOne(fetch=FetchType.LAZY)
-    private Group group;
 }
