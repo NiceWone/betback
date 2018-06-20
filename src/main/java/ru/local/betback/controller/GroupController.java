@@ -13,10 +13,6 @@ public class GroupController {
 
     private final GroupRepository groupRepository;
 
-    public GroupController(GroupRepository groupRepository) {
-        this.groupRepository = groupRepository;
-    }
-
     @GetMapping
     @CrossOrigin(origins = "http://localhost:4200")
     public Iterable<Group> getGroups() {
@@ -26,5 +22,9 @@ public class GroupController {
     @GetMapping("/{id}")
     public Optional<Group> getGroup(@PathVariable("id") String id) {
         return groupRepository.findById(Long.valueOf(id));
+    }
+
+    public GroupController(GroupRepository groupRepository) {
+        this.groupRepository = groupRepository;
     }
 }

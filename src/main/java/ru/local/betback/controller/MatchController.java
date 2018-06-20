@@ -13,10 +13,6 @@ public class MatchController {
 
     private final MatchRepository matchRepository;
 
-    public MatchController(MatchRepository matchRepository) {
-        this.matchRepository = matchRepository;
-    }
-
     @GetMapping
     public Iterable<Match> getMatches() {
         return matchRepository.findAll();
@@ -30,5 +26,9 @@ public class MatchController {
     @PutMapping("/{id}")
     public void updateMatch(@RequestBody Match match, @PathVariable("id") String id) {
         matchRepository.save(match);
+    }
+
+    public MatchController(MatchRepository matchRepository) {
+        this.matchRepository = matchRepository;
     }
 }
