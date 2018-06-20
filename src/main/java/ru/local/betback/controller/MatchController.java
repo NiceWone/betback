@@ -11,7 +11,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 public class MatchController {
 
-    private MatchRepository matchRepository;
+    private final MatchRepository matchRepository;
 
     public MatchController(MatchRepository matchRepository) {
         this.matchRepository = matchRepository;
