@@ -1,12 +1,10 @@
 package ru.local.betback.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.local.betback.domain.Group;
-import ru.local.betback.domain.Match;
 import ru.local.betback.domain.Team;
-import ru.local.betback.service.MatchRepository;
 import ru.local.betback.service.TeamRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -17,17 +15,17 @@ public class TeamController {
     private final TeamRepository teamRepository;
 
     @GetMapping
-    public Iterable<Team> getTeams() {
-        return teamRepository.findAll();
+    public List<Team> getTeams() {
+        return teamRepository.findAllByOrderByIdAsc();
     }
 
     @GetMapping("/{id}")
-    public Optional<Team> getGroup(@PathVariable("id") String id) {
+    public Optional<Team> getTeam(@PathVariable("id") String id) {
         return teamRepository.findById(Long.valueOf(id));
     }
 
     @PutMapping("/{id}")
-    public void updateMatch(@RequestBody Team team, @PathVariable("id") String id) {
+    public void updateTeam(@RequestBody Team team, @PathVariable("id") String id) {
         teamRepository.save(team);
     }
 

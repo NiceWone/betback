@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.local.betback.domain.Match;
 import ru.local.betback.service.MatchRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,8 +15,8 @@ public class MatchController {
     private final MatchRepository matchRepository;
 
     @GetMapping
-    public Iterable<Match> getMatches() {
-        return matchRepository.findAll();
+    public List<Match> getMatches() {
+        return matchRepository.findAllByOrderByIdAsc();
     }
 
     @GetMapping("/{id}")
