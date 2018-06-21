@@ -24,6 +24,11 @@ public class TeamController {
         return teamRepository.findById(Long.valueOf(id));
     }
 
+    @GetMapping("freeTeams")
+    public Optional<Team> getTeamFreeGroup(@PathVariable("id") String id) {
+        return teamRepository.findById(Long.valueOf(id));
+    }
+
     @PutMapping("/{id}")
     public void updateTeam(@RequestBody Team team, @PathVariable("id") String id) {
         if (team.getName().trim().equals(""))

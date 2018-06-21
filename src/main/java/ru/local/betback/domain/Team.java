@@ -18,4 +18,6 @@ public class Team {
     private Long id;
 
     private String name;
+    @ManyToOne
+    private Group group;
 }
