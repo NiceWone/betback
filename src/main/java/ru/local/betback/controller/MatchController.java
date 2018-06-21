@@ -29,6 +29,11 @@ public class MatchController {
         matchRepository.save(match);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteMatch(@PathVariable("id") String id) {
+        matchRepository.deleteById(Long.valueOf(id));
+    }
+
     public MatchController(MatchRepository matchRepository) {
         this.matchRepository = matchRepository;
     }

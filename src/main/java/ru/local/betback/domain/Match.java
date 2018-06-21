@@ -15,14 +15,14 @@ import java.util.Date;
 public class Match {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
     private Team team1;
     @OneToOne
     private Team team2;
-    private int scoreTeam1;
-    private int scoreTeam2;
+    private Integer scoreTeam1;
+    private Integer scoreTeam2;
     private Date date;
 }

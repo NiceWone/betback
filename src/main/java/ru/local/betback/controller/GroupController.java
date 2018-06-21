@@ -30,6 +30,11 @@ public class GroupController {
         groupRepository.save(group);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteGroup(@PathVariable("id") String id) {
+        groupRepository.deleteById(Long.valueOf(id));
+    }
+
     public GroupController(GroupRepository groupRepository) {
         this.groupRepository = groupRepository;
     }

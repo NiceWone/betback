@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,11 +16,11 @@ import java.util.Set;
 public class Group {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Team> teams = new HashSet<>();
+    private List<Team> teams = new ArrayList<>();
 }

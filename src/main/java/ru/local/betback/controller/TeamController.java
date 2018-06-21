@@ -26,7 +26,14 @@ public class TeamController {
 
     @PutMapping("/{id}")
     public void updateTeam(@RequestBody Team team, @PathVariable("id") String id) {
+        if (team.getName().trim().equals(""))
+            return;
         teamRepository.save(team);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTeam(@PathVariable("id") String id) {
+        teamRepository.deleteById(Long.valueOf(id));
     }
 
     public TeamController(TeamRepository teamRepository) {
