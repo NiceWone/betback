@@ -21,6 +21,6 @@ public class Group {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Team> teams = new ArrayList<>();
 }
