@@ -24,9 +24,9 @@ public class TeamController {
         return teamRepository.findById(Long.valueOf(id));
     }
 
-    @GetMapping("freeTeams")
-    public Optional<Team> getTeamFreeGroup(@PathVariable("id") String id) {
-        return teamRepository.findById(Long.valueOf(id));
+    @GetMapping("/freeTeams")
+    public List<Team> getTeamFreeGroup() {
+        return teamRepository.getTeamFreeGroup();
     }
 
     @PutMapping("/{id}")
