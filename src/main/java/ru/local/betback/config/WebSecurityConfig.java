@@ -20,6 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .cors()
                 .and()
+                .csrf().disable() // TODO: 23/06/2018 WATDAFUCK?
                 .authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()

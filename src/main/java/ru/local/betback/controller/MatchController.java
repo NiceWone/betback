@@ -19,6 +19,12 @@ public class MatchController {
         return matchRepository.findAllByOrderByIdAsc();
     }
 
+    @GetMapping(params = {"group_id"})
+    public List<Match> getMatches2(
+            @RequestParam(value = "group_id") int id) {
+        return matchRepository.getMatchesByGroupId(id);
+    }
+
     @GetMapping("/{id}")
     public Optional<Match> getMatch(@PathVariable("id") String id) {
         return matchRepository.findById(Long.valueOf(id));
