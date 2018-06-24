@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/teams")
+@RequestMapping("api/teams")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class TeamController {
 
@@ -24,13 +24,15 @@ public class TeamController {
         return teamRepository.findById(Long.valueOf(id));
     }
 
-    @GetMapping("/freeTeams")
-    public List<Team> getTeamFreeGroup() {
-        return teamRepository.getTeamFreeGroup();
-    }
-
     @PutMapping("/{id}")
     public void updateTeam(@RequestBody Team team, @PathVariable("id") String id) {
+        if (team.getName().trim().equals(""))
+            return;
+        teamRepository.save(team);
+    }
+
+    @PostMapping
+    public void saveTeam(@RequestBody Team team) {
         if (team.getName().trim().equals(""))
             return;
         teamRepository.save(team);
@@ -39,6 +41,11 @@ public class TeamController {
     @DeleteMapping("/{id}")
     public void deleteTeam(@PathVariable("id") String id) {
         teamRepository.deleteById(Long.valueOf(id));
+    }
+
+    @GetMapping("/freeTeams")
+    public List<Team> getTeamFreeGroup() {
+        return teamRepository.getTeamFreeGroup();
     }
 
     public TeamController(TeamRepository teamRepository) {

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/matches")
+@RequestMapping("api/matches")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class MatchController {
 
@@ -32,6 +32,11 @@ public class MatchController {
 
     @PutMapping("/{id}")
     public void updateMatch(@RequestBody Match match, @PathVariable("id") String id) {
+        matchRepository.save(match);
+    }
+
+    @PostMapping
+    public void saveMatch(@RequestBody Match match) {
         matchRepository.save(match);
     }
 

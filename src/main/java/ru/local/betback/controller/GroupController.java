@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/groups")
+@RequestMapping("api/groups")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class GroupController {
 
@@ -27,6 +27,11 @@ public class GroupController {
 
     @PutMapping("/{id}")
     public void updateGroup(@RequestBody Group group, @PathVariable("id") String id) {
+        groupRepository.save(group);
+    }
+
+    @PostMapping
+    public void saveGroup(@RequestBody Group group) {
         groupRepository.save(group);
     }
 
