@@ -19,6 +19,8 @@ public class Team {
     private Long id;
 
     private String name;
-//    @ManyToOne
-//    private Group group;
+
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
 }

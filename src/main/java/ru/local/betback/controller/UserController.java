@@ -17,29 +17,11 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class UserController {
 
-    private final PasswordEncoder passwordEncoder;
-
     private final UserRepository userRepository;
 
     @Autowired
-    public UserController(PasswordEncoder passwordEncoder, UserRepository userRepository) {
-        this.passwordEncoder = passwordEncoder;
+    public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
-    }
-
-    @PostMapping("/signUp")
-    public ResponseEntity<Object> signUp(@RequestBody UserDTO userDTO) {
-        String hashPassword = passwordEncoder.encode(userDTO.getPassword());
-
-        User user = User.builder()
-                .login(userDTO.getLogin())
-                .hashPassword(hashPassword)
-                .email(userDTO.getEmail())
-                .state(State.ACTIVE)
-                .role(Role.USER)
-                .build();
-        userRepository.save(user);
-        return ResponseEntity.ok().build();
     }
 
     @GetMapping
