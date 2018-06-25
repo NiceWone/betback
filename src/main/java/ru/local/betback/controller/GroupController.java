@@ -1,8 +1,8 @@
 package ru.local.betback.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.local.betback.domain.Group;
-import ru.local.betback.service.GroupRepository;
+import ru.local.betback.model.Group;
+import ru.local.betback.repository.GroupRepository;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package ru.local.betback.service;
+package ru.local.betback.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import ru.local.betback.domain.Group;
+import ru.local.betback.model.Group;
 
 import java.util.List;
 

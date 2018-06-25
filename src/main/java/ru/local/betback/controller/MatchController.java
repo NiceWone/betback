@@ -1,8 +1,8 @@
 package ru.local.betback.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.local.betback.domain.Match;
-import ru.local.betback.service.MatchRepository;
+import ru.local.betback.model.Match;
+import ru.local.betback.repository.MatchRepository;
 
 import java.util.List;
 import java.util.Optional;

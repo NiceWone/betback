@@ -1,9 +1,9 @@
-package ru.local.betback.service;
+package ru.local.betback.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import ru.local.betback.domain.Match;
+import ru.local.betback.model.Match;
 
 import java.util.List;
 

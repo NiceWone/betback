@@ -1,9 +1,8 @@
-package ru.local.betback.service;
+package ru.local.betback.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
-import ru.local.betback.domain.Team;
+import ru.local.betback.model.Team;
 
 import java.util.List;
 
