@@ -26,4 +26,6 @@ public class Match {
     private Integer scoreTeam1;
     private Integer scoreTeam2;
     private Date date;
+    @Column(columnDefinition = "true")
+    private boolean isGroupStage;
 }

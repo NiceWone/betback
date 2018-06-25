@@ -1,5 +1,6 @@
 package ru.local.betback.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,5 +23,6 @@ public class Team {
 
     @ManyToOne
     @JoinColumn(name = "group_id")
+    @JsonIgnore
     private Group group;
 }
