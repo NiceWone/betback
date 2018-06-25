@@ -1,16 +1,12 @@
 package ru.local.betback.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import ru.local.betback.model.Role;
-import ru.local.betback.model.State;
 import ru.local.betback.model.User;
 import ru.local.betback.repository.UserRepository;
-import ru.local.betback.transfer.UserDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/users")
@@ -27,5 +23,29 @@ public class UserController {
     @GetMapping
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<User> getUser(@PathVariable("id") String id) {
+        return userRepository.findById(Long.valueOf(id));
+    }
+
+    @PutMapping("/{id}")
+    public void updateUser(@RequestBody User user, @PathVariable("id") String id) {
+        if (user.getLogin().trim().equals(""))
+            return;
+        userRepository.save(user);
+    }
+
+    @PostMapping
+    public void saveUser(@RequestBody User user) {
+        if (user.getLogin().trim().equals(""))
+            return;
+        userRepository.save(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTeam(@PathVariable("id") String id) {
+        userRepository.deleteById(Long.valueOf(id));
     }
 }

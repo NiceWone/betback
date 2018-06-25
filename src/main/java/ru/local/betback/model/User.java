@@ -33,6 +33,6 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private State state;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<Token> tokens;
 }
