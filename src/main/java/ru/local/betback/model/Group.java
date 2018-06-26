@@ -22,6 +22,6 @@ public class Group {
 
     private String name;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     private List<Team> teams = new ArrayList<>();
 }

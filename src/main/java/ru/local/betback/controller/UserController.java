@@ -36,13 +36,13 @@ public class UserController {
             return;
         userRepository.save(user);
     }
-
-    @PostMapping
-    public void saveUser(@RequestBody User user) {
-        if (user.getLogin().trim().equals(""))
-            return;
-        userRepository.save(user);
-    }
+//
+//    @PostMapping
+//    public void saveUser(@RequestBody User user) {
+//        if (user.getLogin().trim().equals(""))
+//            return;
+//        userRepository.save(user);
+//    }
 
     @DeleteMapping("/{id}")
     public void deleteTeam(@PathVariable("id") String id) {

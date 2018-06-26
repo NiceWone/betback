@@ -11,7 +11,6 @@ import ru.local.betback.repository.UserRepository;
 import ru.local.betback.services.LoginService;
 import ru.local.betback.transfer.LoginDTO;
 import ru.local.betback.transfer.TokenDTO;
-import ru.local.betback.transfer.UserDTO;
 
 @RestController
 @RequestMapping
@@ -37,13 +36,12 @@ public class LoginController {
     }
 
     @PostMapping("/signUp")
-    public ResponseEntity<Object> signUp(@RequestBody UserDTO userDTO) {
-        String hashPassword = passwordEncoder.encode(userDTO.getPassword());
+    public ResponseEntity<Object> signUp(@RequestBody LoginDTO loginDTO) {
+        String hashPassword = passwordEncoder.encode(loginDTO.getPassword());
 
         User user = User.builder()
-                .login(userDTO.getLogin())
+                .login(loginDTO.getLogin())
                 .hashPassword(hashPassword)
-                .email(userDTO.getEmail())
                 .state(State.ACTIVE)
                 .role(Role.USER)
                 .build();

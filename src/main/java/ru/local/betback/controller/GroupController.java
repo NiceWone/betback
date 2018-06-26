@@ -27,6 +27,7 @@ public class GroupController {
 
     @PutMapping("/{id}")
     public void updateGroup(@RequestBody Group group, @PathVariable("id") String id) {
+        group.getTeams().forEach(e -> e.setGroup(group));
         groupRepository.save(group);
     }
 
