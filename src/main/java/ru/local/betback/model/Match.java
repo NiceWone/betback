@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
+@Table(name = "matches")
 public class Match {
 
     @Id
@@ -28,6 +29,5 @@ public class Match {
     private Integer scoreTeam1;
     private Integer scoreTeam2;
     private Date date;
-    @Column(columnDefinition = "true")
     private boolean isGroupStage;
 }

@@ -6,7 +6,8 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 
-GET http://localhost:8080/api/bets
-token: IkTXzJl0xcK5iUA
+POST http://localhost:8080/api/signUp
+Content-Type: application/json
 
+{"login":"xx","password":"xx"}
 ###
