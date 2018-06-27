@@ -8,7 +8,7 @@ import ru.local.betback.model.Role;
 import ru.local.betback.model.State;
 import ru.local.betback.model.User;
 import ru.local.betback.repository.UserRepository;
-import ru.local.betback.services.LoginService;
+import ru.local.betback.service.LoginService;
 import ru.local.betback.transfer.LoginDTO;
 import ru.local.betback.transfer.TokenDTO;
 

@@ -1,4 +1,4 @@
-package ru.local.betback.services;
+package ru.local.betback.service;
 
 import ru.local.betback.transfer.LoginDTO;
 import ru.local.betback.transfer.TokenDTO;

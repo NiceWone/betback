@@ -21,8 +21,10 @@ public class Match {
 
     @OneToOne
     private Team team1;
+
     @OneToOne
     private Team team2;
+
     private Integer scoreTeam1;
     private Integer scoreTeam2;
     private Date date;

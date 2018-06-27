@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.local.betback.model.Token;
+import ru.local.betback.model.BetType;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TokenDTO {
-    private String value;
+public class BetDTO {
 
-    public static TokenDTO from(Token token) {
-        return new TokenDTO(token.getValue());
-    }
+    private BetType betType;
+    private Long matchId;
+    private Long userId;
+    private Double bet;
 }
