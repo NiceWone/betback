@@ -10,7 +10,6 @@ import ru.local.betback.transfer.BetDTO;
 
 @RestController
 @RequestMapping("api/bets")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class BetController {
 
     private final BetRepository betRepository;
@@ -21,7 +20,7 @@ public class BetController {
 
     @GetMapping
     public BetDTO getBets() {
-        final Bet bet = betRepository.findAll().stream().findFirst().get();
+        final Bet bet = betRepository.findAll().stream().findFirst().get(); // TODO: add isPresent
         return BetDTO.builder()
                 .bet(bet.getBet())
                 .betType(bet.getBetType())

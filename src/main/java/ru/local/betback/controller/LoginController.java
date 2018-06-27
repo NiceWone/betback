@@ -13,8 +13,7 @@ import ru.local.betback.transfer.LoginDTO;
 import ru.local.betback.transfer.TokenDTO;
 
 @RestController
-@RequestMapping
-@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api")
 public class LoginController {
 
     private final LoginService loginService;

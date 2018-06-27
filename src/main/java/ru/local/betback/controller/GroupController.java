@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/groups")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class GroupController {
 
     private final GroupRepository groupRepository;

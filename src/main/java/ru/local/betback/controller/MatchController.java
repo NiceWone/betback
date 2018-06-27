@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/matches")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class MatchController {
 
     private final MatchRepository matchRepository;

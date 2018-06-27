@@ -12,11 +12,15 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private AuthenticationProvider authenticationProvider;
+    private final AuthenticationProvider authenticationProvider;
+
+    private final TokenAuthFilter tokenAuthFilter;
 
     @Autowired
-    private TokenAuthFilter tokenAuthFilter;
+    public WebSecurityConfig(AuthenticationProvider authenticationProvider, TokenAuthFilter tokenAuthFilter) {
+        this.authenticationProvider = authenticationProvider;
+        this.tokenAuthFilter = tokenAuthFilter;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -25,18 +29,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatcher("/**")
                 .authenticationProvider(authenticationProvider)
                 .authorizeRequests()
-                .antMatchers("/login","/signUp").permitAll()
+                .antMatchers("/api/login", "/api/signUp").permitAll()
                 .antMatchers("/api/**").hasAuthority("USER")
-//                .anyRequest().hasAuthority("USER")
                 .and()
                 .cors()
                 .and()
-                .csrf().disable() ;// TODO: 23/06/2018 WATDAFUCK?
-//                .formLogin()
-//                .loginPage("/login")
-//                .permitAll()
-//                .and()
-//                .logout()
-//                .permitAll();
+                .csrf().disable();// TODO: 23/06/2018 WATDAFUCK?
     }
 }
