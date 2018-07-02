@@ -1,6 +1,6 @@
 language: java
 
-#deploy:
-#  provider: heroku
-#  api_key:
-#    secure: "YOUR ENCRYPTED API KEY"
+deploy:
+  provider: heroku
+  api_key:
+    secure: 881d136b-63e6-4eaa-9b78-23672f066aa2
