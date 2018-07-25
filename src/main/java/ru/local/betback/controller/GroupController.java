@@ -1,6 +1,7 @@
 package ru.local.betback.controller;
 
 import org.springframework.web.bind.annotation.*;
+import ru.local.betback.LogMethod;
 import ru.local.betback.model.Group;
 import ru.local.betback.repository.GroupRepository;
 
@@ -14,6 +15,7 @@ public class GroupController {
     private final GroupRepository groupRepository;
 
     @GetMapping
+    @LogMethod
     @CrossOrigin(origins = "http://localhost:4200")
     public List<Group> getGroups() {
         return groupRepository.findAllByOrderByIdAsc();
